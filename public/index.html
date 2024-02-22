@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <style>
+
+      .dots {
+          width: var(--size);
+          height: var(--size);
+          position: relative;
+      }
+
+      .dot {
+          width: var(--size);
+          height: var(--size);
+          animation: dwl-dot-spin calc(var(--speed) * 5) infinite linear both;
+          animation-delay: calc(var(--i) * var(--speed) / (var(--dot-count) + 2) * -1);
+          rotate: calc(var(--i) * var(--spread) / (var(--dot-count) - 1));
+          position: absolute;
+      }
+
+      .dot::before {
+          content: "";
+          display: block;
+          width: var(--dot-size);
+          height: var(--dot-size);
+          background-color: var(--color);
+          border-radius: 50%;
+          position: absolute;
+          transform: translate(-50%, -50%);
+          bottom: 0;
+          left: 50%;
+      }
+
+      @keyframes dwl-dot-spin {
+          0% {
+              transform: rotate(0deg);
+              animation-timing-function: cubic-bezier(0.390, 0.575, 0.565, 1.000);
+              opacity: 1;
+          }
+          2% {
+              transform: rotate(20deg);
+              animation-timing-function: linear;
+              opacity: 1;
+          }
+          30% {
+              transform: rotate(180deg);
+              animation-timing-function: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+              opacity: 1;
+          }
+          41% {
+              transform: rotate(380deg);
+              animation-timing-function: linear;
+              opacity: 1;
+          }
+          69% {
+              transform: rotate(520deg);
+              animation-timing-function: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+              opacity: 1;
+          }
+          76% {
+              opacity: 1;
+          }
+          76.1% {
+              opacity: 0;
+          }
+          80% {
+              transform: rotate(720deg);
+          }
+          100% {
+              opacity: 0;
+          }
+      }
+
+      *{
+        margin: 0 0;
+        padding: 0 0;
+        box-sizing: border-box;
+        user-select: none;
+          outline: none;
+      }
+
+      .tip{
+        background-color: rgb(242,242,242);
+        padding: 10px 10px;
+        border-radius: 10px;
+        font-size: 14px;
+        margin-top: 10px;
+      }
+
+      .tip-title{
+        font-weight: bold;
+        margin-bottom: 2px;
+      }
+
+      select{
+        border-radius: 5px;
+        height: 32px;
+        padding-left: 12px;
+        padding-right: 34px;
+      }
+
+      button{
+            padding: 6px 20px;
+            border: 0;
+            /* background-color: var(--color-neutral-1); */
+            background-color: transparent;
+            border-radius: 3px;
+            margin-top: 10px;
+            margin-right: 5px;
+            border: 1px solid rgb(128,128,128) !important;
+            cursor: pointer;
+            transition: background-color .05s cubic-bezier(0.23, 1, 0.320, 1);
+            color: black !important;
+        }
+
+        button:hover{
+            background-color: rgba(128,128,128,0.1) !important;
+            /* background-color: var(--color-neutral-2) !important; */
+            /* border: 2px solid var(--color-neutral-3) !important; */
+        }
+
+        button:active{
+            background-color: rgba(128,128,128,0.2) !important;
+            /* background-color: var(--color-neutral-3) !important; */
+            /* border: 2px solid var(--color-neutral-3) !important; */
+        }
+
+        ::-webkit-scrollbar{
+            background: transparent;
+            position: fixed;
+            width: 10px;
+            overflow: visible;
+            margin-right: 10px;
+        }
+
+        ::selection{
+            background-color: rgba(128,128,128,0.3);
+        }
+
+      ::-webkit-scrollbar-button{
+          display: none;
+      }
+
+      ::-webkit-scrollbar-track{
+          display: none;
+          background: transparent;
+          position: fixed;
+      }
+
+      ::-webkit-scrollbar-track-piece{
+          background-color: transparent;
+      }
+
+      ::-webkit-scrollbar-thumb{
+          background-color: lightgray;
+          width: 3px;
+          border-radius: 3px;
+      }
+
+
+
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
